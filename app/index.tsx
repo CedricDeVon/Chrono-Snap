@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Activity, Airplay } from 'lucide-react-native'
 import { Button, Group, ListItem, Separator, XGroup, YGroup, YStack } from 'tamagui'
 

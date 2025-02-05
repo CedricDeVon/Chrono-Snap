@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/logo-1.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.c3dric_d3v0n.Cronos"
     },
     "web": {
       "bundler": "metro",
