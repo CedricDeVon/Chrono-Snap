@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "Cronos",
+    "slug": "Cronos",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/logo-1.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/logo-1.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/logo-1.png"
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Ubuntu/Ubuntu-Regular.ttf",
+            "./assets/fonts/Ubuntu/Ubuntu-Medium.ttf",
+            "./assets/fonts/Ubuntu/Ubuntu-Light.ttf",
+            "./assets/fonts/Ubuntu/Ubuntu-Bold.ttf"
+          ]
+        }
+      ],
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/logo-1.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
