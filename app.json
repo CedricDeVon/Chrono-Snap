@@ -1,27 +1,34 @@
 {
   "expo": {
-    "name": "Cronos",
-    "slug": "Cronos",
+    "name": "NimBit",
+    "slug": "NimBit",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo-1.png",
+    "icon": "./assets/images/logos-main/png/snack.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "NimBit"
+    },
+    "splash": {
+      "image": "./assets/images/logos-main/png/snack.png",
+      "imageWidth": 50,
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logo-1.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/logos-main/png/snack.png",
+        "backgroundColor": "#000000"
       },
-      "package": "com.c3dric_d3v0n.Cronos"
+      "package": "com.c3dric_d3v0n.NimBit"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/logo-1.png"
+      "favicon": "./assets/images/logos-main/png/snack.png"
     },
     "plugins": [
       [
@@ -39,15 +46,21 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/logo-1.png",
-          "imageWidth": 200,
+          "image": "./assets/images/logos-main/png/snack.png",
+          "imageWidth": 50,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#000000"
         }
-      ]
+      ],
+      "expo-sqlite"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7b750d3c-e144-4ea9-8289-0e5c2837ac0e"
+      }
     }
   }
 }

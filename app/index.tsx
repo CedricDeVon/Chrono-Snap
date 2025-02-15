@@ -1,48 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { Activity, Airplay } from 'lucide-react-native'
-import { Button, Group, ListItem, Separator, XGroup, YGroup, YStack } from 'tamagui'
+import { router } from 'expo-router';
+import Storage from 'expo-sqlite/kv-store';
+import { BackHandler, View } from 'react-native';
+import { Image, Button, H3, XStack, YStack } from 'tamagui';
+
+import Logo from '../assets/images/logos-main/png/snack.png';
+import useMainStore from '@/store/mainStore';
+import { CommonHeader } from '../components/CommonHeader';
+import { CommonFooter } from '../components/CommonFooter';
+import { BrandingTitle } from '../components/BrandingTitle';
+import { LargeApplicationLogo } from '../components/LargeApplicationLogo';
 
 export default function Index() {
+  const handleNavigatingToLogIn = () => {
+    router.navigate('log-in');
+  }
+  
+  const handleNavigatingToSignUp = () => {
+    router.navigate('sign-up');
+  }
+  
+  const handleNavigatingToExit = () => {
+    BackHandler.exitApp();
+  }
+
   return (
-    <YStack padding="$3" space="$2" alignItems="center">
-      <Group orientation="horizontal">
-        <Group.Item>
-          <Button>First</Button>
-        </Group.Item>
-        <Group.Item>
-          <Button>Second</Button>
-        </Group.Item>
-        <Group.Item>
-          <Button>Third</Button>
-        </Group.Item>
-      </Group>
-
-      {/* responsive + size */}
-      <XGroup size="$3" $gtSm={{ size: '$5' }}>
-        <XGroup.Item>
-          <Button size="$3" icon={Activity}>
-            First
-          </Button>
-        </XGroup.Item>
-        <XGroup.Item>
-          <Button size="$3" icon={Airplay}>
-            Second
-          </Button>
-        </XGroup.Item>
-      </XGroup>
-
-      {/* Separator */}
-      <YGroup separator={<Separator />}>
-        <YGroup.Item>
-          <ListItem title="First" />
-        </YGroup.Item>
-        <YGroup.Item>
-          <ListItem title="Second" subTitle="Second subtitle" />
-        </YGroup.Item>
-        <YGroup.Item>
-          <ListItem>Third</ListItem>
-        </YGroup.Item>
-      </YGroup>
-    </YStack>
+    <>
+      <CommonHeader />
+      <YStack flex={1} alignItems="center" justifyContent="center">
+        <YStack gap="$5" alignItems="center" justifyContent="center">
+          <BrandingTitle />
+          <YStack width={200} gap="$3">
+            <Button onPress={handleNavigatingToLogIn}>Log In</Button>
+            <Button onPress={handleNavigatingToSignUp}>Sign Up</Button>
+          </YStack>
+          <View></View>
+          <YStack width={200} gap="$3">
+            <Button onPress={handleNavigatingToExit}>Exit</Button>
+          </YStack>
+        </YStack>
+      </YStack>
+      <CommonFooter />
+    </>
   )
 }
