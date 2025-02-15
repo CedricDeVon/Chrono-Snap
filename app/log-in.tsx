@@ -29,7 +29,6 @@ export default function LogIn() {
         email: logInForm.email,
         password: logInForm.password,
       })
-      console.log(result)
       
       if (result.error) {
         updateLogInForm({ status: 'off', message: (result.error.status) ? result.error.message : "Connect to Log In" });

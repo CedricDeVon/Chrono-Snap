@@ -1,4 +1,5 @@
 import { View } from 'react-native'
+import { useEffect, useState } from 'react';
 import { router } from 'expo-router';
 import { BarChart } from "react-native-gifted-charts";
 import { Paragraph, H6, XStack, YStack, } from 'tamagui';
@@ -9,7 +10,47 @@ import { CommonHeader } from '@/components/CommonHeader';
 import { TabsSelectionFooter } from '@/components/TabsSelectionFooter';
 
 export default function Insights() {
-  const { insights } = useMainStore();
+  const { insights, updateInsights } = useMainStore();
+
+  const handleLoadingResource = async () => {
+    try {
+      updateInsights({ filesUploaded: 0, fileTypesDataset: [] });
+
+      const authUserResult = await supabase.auth.getUser();
+      if (authUserResult.error) {
+        alert(authUserResult.error.message);
+        updateInsights({ filesUploaded: 0, fileTypesDataset: [] });
+        return;
+      }
+      supabase
+        .from('resource')
+        .select('id,file_type')
+        .eq('user_email', authUserResult.data.user.email)
+        .then((resourceResponse: any) => {
+          if (resourceResponse.error) {
+            alert(resourceResponse.error.message);
+            updateInsights({ filesUploaded: 0, fileTypesDataset: [] });
+            return;
+          }
+          const fileTypesPartialResults = {};
+          resourceResponse.data.forEach((item) => {
+            fileTypesPartialResults[item.file_type] = (!fileTypesPartialResults[item.file_type]) ? 1 : fileTypesPartialResults[item.file_type] + 1;
+          })
+          const fileTypesDataset = [];
+          for (const fileTypeResult in fileTypesPartialResults) {
+            fileTypesDataset.push({ value: fileTypesPartialResults[fileTypeResult], label: fileTypeResult });
+          }
+          updateInsights({ filesUploaded: resourceResponse.data.length, fileTypesDataset });
+        })
+
+    } catch (error: any) {
+      alert(error.message);
+    }
+  }
+
+  useEffect(() => {
+    handleLoadingResource();
+  }, [])
   
   return (
     <>

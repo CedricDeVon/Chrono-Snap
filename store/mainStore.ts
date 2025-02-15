@@ -35,7 +35,7 @@ const useMainStore = create((set) => ({
   logInForm: {
     status: 'off',
     email: 'vaughncedriclipardoaraneta@gmail.com',
-    password: '326_TheWorldIsFlat$',
+    password: '326_TheWorldIsFlat$$',
     errorMessage: ''
   },
   updateLogInForm: (value: any) => {
@@ -113,13 +113,15 @@ const useMainStore = create((set) => ({
   },
 
   storageTab: {
-    resources: [],
-    links: {},
+    resourceUrl: JSON.parse(Storage.getItemSync('application-insights-resource-url')) || '',
+    resourceUri: JSON.parse(Storage.getItemSync('application-insights-resource-uri')) || '',
     loadingStatus: 'loading',
-    message: ''
+    errorMessage: ''
   },
   updateStorageTab: (value: any) => {
     return set((state: any) => {
+      Storage.setItem('application-insights-resource-url', JSON.stringify(value.resourceUrl));
+      Storage.setItem('application-insights-resource-uri', JSON.stringify(value.resourceUri));
       return { storageTab: { ...state.storageTab, ...value } }
     })
   }
