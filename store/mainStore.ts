@@ -33,9 +33,9 @@ const useMainStore = create((set) => ({
     })
   },
   logInForm: {
-    status: 'off',
-    email: 'vaughncedriclipardoaraneta@gmail.com',
-    password: '326_TheWorldIsFlat$$',
+    status: '',
+    email: '',
+    password: '',
     errorMessage: ''
   },
   updateLogInForm: (value: any) => {
