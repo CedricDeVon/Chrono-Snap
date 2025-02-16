@@ -15,7 +15,6 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@dev-plugins/react-native-mmkv": "^0.1.0",
     "@expo/vector-icons": "^14.0.2",
     "@react-native-async-storage/async-storage": "1.23.1",
     "@react-native-community/netinfo": "^11.4.1",
@@ -50,9 +49,6 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-native": "^0.76.7",
-    "react-native-appwrite": "^0.7.0",
-    "react-native-compressor": "^1.10.3",
-    "react-native-fast-image": "^8.6.3",
     "react-native-gesture-handler": "~2.20.2",
     "react-native-gifted-charts": "^1.4.56",
     "react-native-reanimated": "~3.16.1",

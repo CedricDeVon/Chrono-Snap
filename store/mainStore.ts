@@ -33,7 +33,7 @@ const useMainStore = create((set) => ({
     })
   },
   logInForm: {
-    status: '',
+    status: 'off',
     email: '',
     password: '',
     errorMessage: ''

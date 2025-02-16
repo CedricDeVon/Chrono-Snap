@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "NimBit",
-    "slug": "NimBit",
+    "slug": "nimbit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/logos-main/png/snack.png",
@@ -59,7 +59,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "7b750d3c-e144-4ea9-8289-0e5c2837ac0e"
+        "projectId": "21a6e0e5-11ad-4e8c-a25f-3dfd5d12af40"
       }
     }
   }
